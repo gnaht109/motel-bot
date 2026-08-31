@@ -4,7 +4,8 @@ const { REST, Routes, SlashCommandBuilder } = require('discord.js');
 const commands = [
   new SlashCommandBuilder()
     .setName('setup')
-    .setDescription('Đăng bảng điều khiển phòng trọ (chỉ cần chạy 1 lần)'),
+    .setDescription('Đăng bảng điều khiển phòng trọ (chỉ cần chạy 1 lần)')
+    .setDefaultMemberPermissions(PermissionFlagsBits.Administrator), // chỉ Admin thấy và dùng được
 ].map(cmd => cmd.toJSON());
 
 const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);

@@ -1,7 +1,13 @@
-const { EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
+// handlers/setupPanel.js
+const { EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, PermissionFlagsBits } = require('discord.js');
 
 async function handleSetupPanel(interaction) {
   if (interaction.commandName !== 'setup') return;
+
+  if (!interaction.memberPermissions.has(PermissionFlagsBits.Administrator)) {
+    await interaction.reply({ content: '❌ Bạn không có quyền dùng lệnh này.', ephemeral: true });
+    return;
+  }
 
   const embed = new EmbedBuilder()
     .setTitle('🏠 Phòng trọ DKCT')
