@@ -7,7 +7,7 @@ const auth = new google.auth.GoogleAuth({
 });
 
 const sheets = google.sheets({ version: 'v4', auth });
-const DKCT = "DKCT'";
+const DKCT = "'DKCT'";
 
 function extractDriveImageUrls(cellValue) {
   if (!cellValue) return [];
