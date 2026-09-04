@@ -2,12 +2,12 @@ const { google } = require('googleapis');
 require('dotenv').config();
 
 const auth = new google.auth.GoogleAuth({
-  keyFile: 'service-account.json',
+  credentials: JSON.parse(process.env.GOOGLE_CREDENTIALS),
   scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
 });
 
 const sheets = google.sheets({ version: 'v4', auth });
-const DKCT = "'DKCT'"; // đổi đúng tên tab thật của bạn
+const DKCT = "DKCT'";
 
 function extractDriveImageUrls(cellValue) {
   if (!cellValue) return [];
@@ -44,6 +44,7 @@ async function getMotels() {
         Hinh2: images[1] || '',
         Hinh3: images[2] || '',
         Hinh4: images[3] || '',
+        Hinh5: images[4] || '',
         Link: row[7] || '',       // cột H
         Map: row[8] || '',        // cột I
         Tinhtrang: row[9] || 'Còn Trống', // cột J

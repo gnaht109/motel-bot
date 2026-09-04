@@ -2,7 +2,7 @@ const { EmbedBuilder } = require('discord.js');
 const { truncate, getValidUrl } = require('./embedHelpers');
 
 function buildRoomEmbeds(r) {
-  const images = [r.Hinh1, r.Hinh2, r.Hinh3, r.Hinh4]
+  const images = [r.Hinh1, r.Hinh2, r.Hinh3, r.Hinh4, r.Hinh5]
     .map(u => getValidUrl(u))
     .filter(Boolean);
 
