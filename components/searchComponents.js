@@ -14,7 +14,8 @@ function buildSearchComponents() {
     .setPlaceholder('Loại phòng')
     .addOptions(
       { label: 'Có gác', value: 'Có gác' },
-      { label: 'Studio', value: 'Studio' }
+      { label: 'Studio', value: 'Studio' },
+      { label: 'Mặt tiền', value: 'Mặt tiền' },
     );
 
   const giaSelect = new StringSelectMenuBuilder()
